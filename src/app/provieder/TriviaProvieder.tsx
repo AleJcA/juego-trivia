@@ -14,13 +14,13 @@ export const TriviaProvider = ({ children }: { children: React.ReactNode }) => {
     useState<boolean | null>(null);
   const [esCorrecta, setEsCorrecta] = useState<boolean | null>(null);
 
-  // Cargar preguntas (máx 5, tú decides desde el componente visual)
+
   const cargarPreguntas = (lista: PreguntaTrivia[]) => {
     setPreguntas(lista.slice(0, 5));
     reiniciarTrivia();
   };
 
-  // Selección de respuesta
+
   const seleccionarRespuesta = (respuesta: boolean) => {
     if (respuestaSeleccionada !== null) return;
 
@@ -36,14 +36,13 @@ export const TriviaProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  // Pasar a la siguiente pregunta
+
   const siguientePregunta = () => {
     setRespuestaSeleccionada(null);
     setEsCorrecta(null);
     setPreguntaActual((prev) => prev + 1);
   };
 
-  // Reiniciar todo el juego
   const reiniciarTrivia = () => {
     setPreguntaActual(0);
     setPuntaje(0);
